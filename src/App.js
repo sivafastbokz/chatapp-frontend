@@ -1,10 +1,10 @@
-import ChatApp from './component/Chat';
+import ChatSignUp from "./component/ChatSignUp";
 
 
 function App() {
   return (
    <>
-  <ChatApp/>
+  <ChatSignUp/>
    </>
   );
 }
