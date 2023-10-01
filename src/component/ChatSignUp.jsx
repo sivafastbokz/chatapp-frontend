@@ -5,9 +5,10 @@ import './chatSignUp.css'
 function ChatSignUp(){
     const[userName,setUserName]=useState('');
     const[showChat, setShowChat]=useState(false);
+    const[roomId,setRoomId]=useState('');
 
     const joinChat = ()=>{
-        if(userName !== ''){
+        if(userName !== '' && roomId !==''){
             setShowChat(true)
         }
     }
@@ -16,15 +17,15 @@ function ChatSignUp(){
         {!showChat ?(
             <div className='container'>
             <div className='container-item'>
-            <label>Please enter your name to join the chat</label>
+            <label>Join a chat</label>
             <br/>
             <input type='text' placeholder='Enter your name'onChange={(event)=>{setUserName(event.target.value)}}/>
-            <br/>
+            <input type='text' placeholder='Enter your room ID'onChange={(event)=>{setRoomId(event.target.value)}}/>
             <button onClick={joinChat}>JOIN</button>
             </div>    
             </div>
         ):(
-            <ChatApp userName={userName}/>
+            <ChatApp userName={userName} roomId={roomId}/>
         )}
         </>
     )

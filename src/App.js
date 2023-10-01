@@ -1,6 +1,5 @@
 import ChatSignUp from "./component/ChatSignUp";
 
-
 function App() {
   return (
    <>
