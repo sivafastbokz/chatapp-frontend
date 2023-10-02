@@ -10,7 +10,6 @@ function ChatApp({userName,roomId}){
     useEffect(()=>{
       const ws = new WebSocket('ws://localhost:5000');
        ws.onopen = ()=>{
-        console.log('websocket connected')
         setSocket(ws)
     }
     ws.onmessage = (event) => {
