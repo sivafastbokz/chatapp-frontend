@@ -6,7 +6,7 @@ function ChatApp({userName,roomId}){
     const [socket,setSocket]=useState(null)
     const [message, setMessage] = useState('');
     const [messageList, setMessageList] = useState([]);
-
+  
     useEffect(()=>{
       const ws = new WebSocket('ws://localhost:5000');
        ws.onopen = ()=>{
@@ -20,7 +20,6 @@ function ChatApp({userName,roomId}){
     },[])
 
     const sendMessage = async() => {
-        if (socket && message.trim() !== '') {
           const messageData = {
             author:userName,
             room:roomId,
@@ -29,7 +28,6 @@ function ChatApp({userName,roomId}){
           };
           await socket.send(JSON.stringify(messageData))
           setMessage('')
-        }
       };
       
     return(
